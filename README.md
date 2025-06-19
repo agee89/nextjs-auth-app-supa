@@ -1,4 +1,4 @@
-# SecureAuth - Next.js Authentication Platform
+# SecureAuth - Next.js Supabase Authentication Platform 
 
 A modern, secure authentication platform built with Next.js 14, TypeScript, Supabase, and Tailwind CSS. This production-ready application provides a complete authentication system with beautiful UI components and comprehensive user management features.
 

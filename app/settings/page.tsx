@@ -21,6 +21,8 @@ import {
   Trash2,
   Save,
   Eye,
+  House,
+  LogOut,
   EyeOff
 } from 'lucide-react';
 import Link from 'next/link';
@@ -49,6 +51,7 @@ export default function SettingsPage() {
   const [emailNotifications, setEmailNotifications] = useState(true);
   const [securityAlerts, setSecurityAlerts] = useState(true);
   const [marketingEmails, setMarketingEmails] = useState(false);
+  
 
   useEffect(() => {
     if (user) {
@@ -56,6 +59,18 @@ export default function SettingsPage() {
       // Set other fields if available in user metadata
     }
   }, [user]);
+
+  const handleSignOut = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+      
+      toast.success('Signed out successfully');
+      router.push('/');
+    } catch (error: any) {
+      toast.error('Failed to sign out. Please try again.');
+    }
+  };
 
   const handleProfileUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -135,19 +150,26 @@ export default function SettingsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-emerald-50">
+
       {/* Navigation */}
       <nav className="bg-white/80 backdrop-blur-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center h-16">
-            <Link href="/dashboard">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Dashboard
-              </Button>
-            </Link>
-            <div className="flex items-center space-x-2 ml-6">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-2">
               <Shield className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold text-gray-900">Settings</span>
+              <span className="text-xl font-bold text-gray-900">SecureAuth</span>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Link href="/dashboard">
+                <Button variant="ghost" size="sm">
+                  <House className="h-4 w-4 mr-2" />
+                  Dashboard
+                </Button>
+              </Link>
+              <Button variant="ghost" size="sm" onClick={handleSignOut}>
+                <LogOut className="h-4 w-4 mr-2" />
+                Sign Out
+              </Button>
             </div>
           </div>
         </div>
@@ -311,7 +333,7 @@ export default function SettingsPage() {
                 <span>Notification Preferences</span>
               </CardTitle>
               <CardDescription>
-                Choose what notifications you'd like to receive
+                Choose what notifications you like to receive
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
