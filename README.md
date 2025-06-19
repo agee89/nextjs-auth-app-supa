@@ -57,7 +57,7 @@ Before running this project, make sure you have:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/secureauth.git
+   git clone https://github.com/agee89/nextjs-auth-app-supa.git
    cd secureauth
    ```
 
