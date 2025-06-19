@@ -2,7 +2,7 @@
 
 A modern, secure authentication platform built with Next.js 14, TypeScript, Supabase, and Tailwind CSS. This production-ready application provides a complete authentication system with beautiful UI components and comprehensive user management features.
 
-![SecureAuth Preview](https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop)
+![Home Preview](https://github.com/user-attachments/assets/b1b9c3d4-7e37-42bc-aaec-a19f943a1bbf)
 
 ## ✨ Features
 
